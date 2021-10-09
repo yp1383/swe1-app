@@ -3,8 +3,10 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question
+from helloWorld.settings import YELP_API
 
+from .models import Choice, Question
+import requests, json, os
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -41,3 +43,11 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+url = 'https://api.yelp.com/v3/businesses/search'
+params = {'term': 'seafood', 'location':'New York City'}
+headers = {'Authorization': 'Bearer %s' % YELP_API};
+
+
+req = requests.get(url, params = params, headers = headers);
+print("The status code is {}".format(req.status_code));
