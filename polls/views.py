@@ -42,6 +42,3 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-req = requests.get(url, params = params, headers = headers);
-print("The status code is {}".format(req.status_code));
