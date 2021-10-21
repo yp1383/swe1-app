@@ -1,11 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.shortcuts import ender
 from django.urls import reverse
 from django.views import generic
 
 from helloWorld.settings import YELP_API
 
-from .models import Choice, Question
+from .models import Choice
+from .models import Question
 import requests
 
 class IndexView(generic.ListView):
