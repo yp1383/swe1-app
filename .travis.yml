@@ -1,6 +1,8 @@
 language: python
 install:
   - pip install -r requirements.txt
+  - pip install black
+  - pip install flake8
 before_script:
   - python manage.py migrate
 script:
