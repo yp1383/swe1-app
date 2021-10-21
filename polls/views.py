@@ -6,7 +6,7 @@ from django.views import generic
 from helloWorld.settings import YELP_API
 
 from .models import Choice, Question
-import requests, json, os
+import requests
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
