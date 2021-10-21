@@ -1,0 +1,12 @@
+language: python
+install:
+  - pip install -r requirements.txt
+before_script:
+  - python manage.py migrate
+script:
+  - python manage.py
+  - black .
+  - flake8 .
+  - coverage run --source='.' manage.py test
+after_success:
+  - coveralls
